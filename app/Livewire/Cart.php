@@ -20,20 +20,14 @@ class Cart extends Component
         $this->total = $this->sub_total;
     }
     #[Computed()]
-    public function getItemsProperty(CartServiceInterface $cart):Collection
+    public function getItemsProperty(CartServiceInterface $cart): Collection
     {
         return $cart->all()->items->toCollection();
 
     }
     public function checkout()
     {
-        try{
-            ValidateCartStock::run();
-            return redirect()->route('checkout');
-        } catch (ValidationException $e){
-            session()->flash('error', $e->getMessage());
-            return redirect()->route('cart');
-        }
+        return redirect()->route('checkout');
     }
     public function render()
     {
