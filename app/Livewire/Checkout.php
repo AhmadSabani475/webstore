@@ -3,13 +3,17 @@
 namespace App\Livewire;
 
 use App\Data\CartData;
-use App\Data\RegionData;
-use App\Services\RegionQueryService;
+use App\Rules\ValidShippingHash;
 use Livewire\Component;
+use App\Data\RegionData;
+use App\Data\ShippingData;
 use Illuminate\Support\Number;
+use Illuminate\Support\Collection;
+use App\Services\RegionQueryService;
 use Illuminate\Support\Facades\Gate;
 use App\Contract\CartServiceInterface;
 use Spatie\LaravelData\DataCollection;
+use App\Services\ShippingMethodService;
 
 class Checkout extends Component
 {
@@ -18,7 +22,8 @@ class Checkout extends Component
         'email' => null,
         'phone' => null,
         'shipping_line' => null,
-        'destination_region_code' => null
+        'destination_region_code' => null,
+        'shipping_hash' => null
     ];
     public array $summaries = [
         'sub_total' => 0,
@@ -32,6 +37,10 @@ class Checkout extends Component
     public array $region_selector = [
         'keyword' => null,
         'region_selected' => null
+    ];
+
+    public array $shipping_selector = [
+        'shipping_method' => null
     ];
 
 
@@ -52,7 +61,8 @@ class Checkout extends Component
             'data.email' => ['required', 'email:dns', 'string'],
             'data.phone' => ['required', 'numeric', 'digits_between:10,15'],
             'data.shipping_line' => ['required', 'min:10', 'max:255'],
-            'data.destination_region_code' => ['required']
+            'data.destination_region_code' => ['required', 'exists:regions,code'],
+            'data.shipping_hash' => ['required', new ValidShippingHash()]
         ];
     }
     public function calculateTotal()
@@ -60,7 +70,7 @@ class Checkout extends Component
         data_set($this->summaries, 'sub_total', $this->cart->total);
         data_set($this->summaries, 'sub_total_formatted', $this->cart->total_formatted);
 
-        $shipping_cost = 0;
+        $shipping_cost = $this->shippingMethod?->cost ?? 0;
         data_set($this->summaries, 'shipping_total', $shipping_cost);
         data_set($this->summaries, 'shipping_total_formatted', Number::currency($shipping_cost));
 
@@ -96,6 +106,40 @@ class Checkout extends Component
     public function updatedRegionSelectorRegionSelected($value)
     {
         data_set($this->data, 'destination_region_code', $value);
+    }
+    public function getShippingMethodsProperty(
+        RegionQueryService $region_query,
+        ShippingMethodService $shipping_service
+    ): DataCollection|Collection {
+        if (!data_get($this->data, 'destination_region_code')) {
+            return new DataCollection(ShippingData::class, []);
+        }
+        $origin_code = config('shipping.shipping_origin_code');
+        return $shipping_service->getShippingMethods(
+            $region_query->searchRegionByCode($origin_code),
+            $region_query->searchRegionByCode(data_get($this->data, 'destination_region_code')),
+            $this->cart
+        )->toCollection()->groupBy('service');
+    }
+    public function getShippingMethodProperty(ShippingMethodService $shipping_service): ?ShippingData
+    {
+        if (empty(data_get($this->data, 'shipping_hash')) || empty(data_get($this->data, 'destination_region_code'))) {
+            return null;
+        }
+
+        $data = $shipping_service->getShippingMethod(
+            data_get($this->data, 'shipping_hash')
+        );
+        if ($data == null) {
+            $this->addError('shipping_hash', "Shipping Cost Missing");
+            redirect()->route('checkout');
+        }
+        return $data;
+    }
+    public function updatedShippingSelectorShippingMethod($value)
+    {
+        data_set($this->data, 'shipping_hash', $value);
+        $this->calculateTotal();
     }
     public function placeAnOrder()
     {

@@ -19,11 +19,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call([
-            ProvinceSeeder::class,
-            RegencySeeder::class,
-            DistrictSeeder::class,
-            VillageSeeder::class,
-        ]);
+        $this->call(RegionSeeder::class);
     }
 }

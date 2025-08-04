@@ -15,7 +15,7 @@ class RegionSeeder extends Seeder
     public function run(): void
     {
         $this->command->info('Fetching Prrovince');
-        $provinces = Http::get('https://wilayah.id/api/provinces.json')->json('data');
+        $provinces = Http::timeout(30)->retry(3, 1000)->get('https://wilayah.id/api/provinces.json')->json('data');
 
         foreach ($provinces as $province) {
             Region::create([
@@ -25,7 +25,7 @@ class RegionSeeder extends Seeder
                 'parent_code' => null
             ]);
             $this->command->info("fetching Regencies for {$province['name']}...");
-            $regencies = Http::get("https://wilayah.id/api/regencies/{$province['code']}.json")->json('data');
+            $regencies = Http::timeout(30)->retry(3, 1000)->get("https://wilayah.id/api/regencies/{$province['code']}.json")->json('data');
             foreach ($regencies as $regency) {
                 Region::create([
                     'code' => data_get($regency, 'code'),
@@ -34,7 +34,7 @@ class RegionSeeder extends Seeder
                     'parent_code' => data_get($province, 'code')
                 ]);
                 $this->command->info("fetching District for {$regency['name']}...");
-                $districts = Http::get("https://wilayah.id/api/districts/{$regency['code']}.json")->json('data');
+                $districts = Http::timeout(30)->retry(3, 1000)->get("https://wilayah.id/api/districts/{$regency['code']}.json")->json('data');
                 foreach ($districts as $district) {
                     Region::create([
                         'code' => data_get($district, 'code'),
@@ -43,15 +43,16 @@ class RegionSeeder extends Seeder
                         'parent_code' => data_get($regency, 'code')
                     ]);
                     $this->command->info("fetching Village for {$district['name']}...");
-                    $villages = Http::get("https://wilayah.id/api/villages/{$district['code']}.json")->json('data');
+                    $villages = Http::timeout(30)->retry(3, 1000)->get("https://wilayah.id/api/villages/{$district['code']}.json")->json('data');
                     foreach ($villages as $village) {
                         Region::create([
                             'code' => data_get($village, 'code'),
                             'name' => data_get($village, 'name'),
                             'type' => 'village',
                             'postal_code' => data_get($village, 'postal_code'),
-                            'parent_code' => data_get($regency, 'code')
+                            'parent_code' => data_get($district, 'code') // ✅ Perbaikan di sini
                         ]);
+
                     }
                 }
             }

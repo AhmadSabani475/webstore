@@ -25,11 +25,11 @@ class RegionData extends Data
     {
         return new self(
             code: $region->code,
-            province: $region->parent->parent->parent->name,
-            city: $region->parent->parent->name,
-            district: $region->parent->name,
+            province: $region->parent?->parent?->parent?->name ?? 'Unknown',
+            city: $region->parent?->parent?->name ?? 'Unknown',
+            district: $region->parent?->name ?? 'Unknown',
             sub_district: $region->name,
-            postal_code: $region->postal_code
+            postal_code: $region->postal_code,
         );
     }
 }
