@@ -9,6 +9,7 @@ use App\Actions\ValidateCartStock;
 use App\Services\SessionCartService;
 use Illuminate\Support\Facades\Gate;
 use App\Contract\CartServiceInterface;
+use App\Services\PaymentMethodService;
 use App\Services\ShippingMethodService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
@@ -24,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CartServiceInterface::class, SessionCartService::class);
         $this->app->bind(RegionQueryService::class, RegionQueryService::class);
         $this->app->bind(ShippingMethodService::class, ShippingMethodService::class);
+        $this->app->bind(PaymentMethodService::class, PaymentMethodService::class);
     }
 
     /**
