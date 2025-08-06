@@ -4,8 +4,8 @@
             <div class="p-10">
                 <!-- Section -->
                 <div
-                    class="py-6 border-t border-gray-200 first:pt-0 last:pb-0 first:border-transparent dark:border-neutral-700 dark:first:border-transparent">
-                    <label for="af-payment-billing-contact" class="inline-block text-sm font-medium dark:text-white">
+                    class="py-6 border-t border-gray-200 first:pt-0 last:pb-0 first:border-transparent ">
+                    <label for="af-payment-billing-contact" class="inline-block text-sm font-medium ">
                         Billing contact
                     </label>
 
@@ -14,7 +14,7 @@
                             <input wire:model="data.full_name" id="af-payment-billing-contact" type="text"
                                 class="@error('data.full_name')
                                     border-red-600
-                                @enderror py-1.5 sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs sm:text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                @enderror py-1.5 sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs sm:text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
                                 placeholder="Full Name">
                             @error('data.full_name')
                                 <p class="mt-2 text-xs text-red-600" id="hs-validation-name-error-helper">
@@ -25,7 +25,7 @@
                             <input wire:model="data.email" type="text"
                                 class=" @error('data.email')
                                     border-red-600
-                                @enderror py-1.5 sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs sm:text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                @enderror py-1.5 sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs sm:text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
                                 placeholder="Email">
                             @error('data.email')
                                 <p class="mt-2 text-xs text-red-600" id="hs-validation-name-error-helper">
@@ -37,7 +37,7 @@
                             <input wire:model="data.phone" type="text"
                                 class="@error('data.phone')
                                     border-red-600 
-                                @enderror sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs sm:text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                @enderror sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs sm:text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
                                 placeholder="Phone Number">
                             @error('data.phone')
                                 <p class="mt-2 text-xs text-red-600" id="hs-validation-name-error-helper">
@@ -49,8 +49,8 @@
                 </div>
                 <!-- Section -->
                 <div
-                    class="py-6 mt-5 border-t border-gray-200 first:pt-0 last:pb-0 first:border-transparent dark:border-neutral-700 dark:first:border-transparent">
-                    <label for="af-payment-billing-address" class="inline-block text-sm font-medium dark:text-white">
+                    class="py-6 mt-5 border-t border-gray-200 first:pt-0 last:pb-0 first:border-transparent ">
+                    <label for="af-payment-billing-address" class="inline-block text-sm font-medium ">
                         Billing address
                     </label>
 
@@ -58,7 +58,7 @@
                         <input wire:model="data.address_line" id="af-payment-billing-address" type="text"
                             class="@error('data.address_line')
                                 border-red-600
-                            @enderror sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs sm:text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                            @enderror sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs sm:text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
                             placeholder="Street Address">
                         @error('data.address_line')
                             <p class="mt-2 text-xs text-red-600" id="hs-validation-name-error-helper">{{ $message }}
@@ -70,7 +70,7 @@
                                 <div class="relative">
                                     <input wire:model.live.debounce.500ms="region_selector.keyword" type="text"
                                         @focus="open = true" @click.outside="open = false"
-                                        class="py-1.5 sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs sm:text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                        class="py-1.5 sm:py-2 px-3 pe-11 block w-full border-gray-200 shadow-2xs sm:text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
                                         placeholder="Cari Lokasi">
                                     <div wire:loading wire:target="region_selector.keyword"
                                         class="absolute right-3 top-3 animate-spin inline-block size-6 border-3 border-current border-t-transparent text-blue-500 rounded-full"
@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <!-- End Section -->
-                <label for="af-shipping-method" class="inline-block text-sm font-medium dark:text-white">
+                <label for="af-shipping-method" class="inline-block text-sm font-medium ">
                     Shipping Method
                 </label>
                 @error('data.shipping_hash')
@@ -137,19 +137,19 @@
                             </div>
                             @foreach ($shipping_method_groups as $i => $shipping_method)
                                 <label for="shipping_method_{{ $shipping_method->hash }}"
-                                    class="flex items-center justify-between w-full gap-2 p-2 text-sm bg-white border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+                                    class="flex items-center justify-between w-full gap-2 p-2 text-sm bg-white border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 ">
                                     <div class="flex items-center justify-start gap-2">
                                         <input wire:key ="{{ $shipping_method->hash }}"
                                             wire:model.live = "shipping_selector.shipping_method" type="radio"
                                             value="{{ $shipping_method->hash }}"
-                                            class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                            class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none "
                                             id="shipping_method_{{ $shipping_method->hash }}">
                                         @if ($shipping_method->logo_url)
                                             {
                                             <img src="{{ $shipping_method->logo_url }}" class="h-5" />
                                             }
                                         @endif
-                                        <span class="text-sm text-gray-500 ms-3 dark:text-neutral-400">JNT
+                                        <span class="text-sm text-gray-500 ms-3 ">JNT
                                             {{ $shipping_method->label }}
                                         </span>
                                     </div>
@@ -164,7 +164,7 @@
                     </div>
                 </div>
 
-                <label for="af-payment-method" class="inline-block mt-5 text-sm font-medium dark:text-white">
+                <label for="af-payment-method" class="inline-block mt-5 text-sm font-medium ">
                     Payment Method
                 </label>
                  @error('data.payment_method_hash')
@@ -178,14 +178,14 @@
                                 class="@error('data.shipping_line')
                                 border-red-600
                             @enderror 
-                            flex w-full p-2 text-sm bg-white border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
+                            flex w-full p-2 text-sm bg-white border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 ">
                                 <input type="radio" wire:key="payment-method-{{ $payment_method->hash }}"
                                 wire:model.live='payment_method_selector.payment_method_selected'
                                 value={{ $payment_method->hash }}
-                                    class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                    class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none "
                                     id="payment_method_{{ $payment_method->hash }}">
                                 <span
-                                    class="text-sm text-gray-500 ms-3 dark:text-neutral-400">{{ $payment_method->label }}</span>
+                                    class="text-sm text-gray-500 ms-3 ">{{ $payment_method->label }}</span>
                             </label>
                         @endforeach
 
@@ -203,14 +203,14 @@
                     <!-- List Group -->
                     <ul class="flex flex-col mt-3">
                         <li
-                            class="inline-flex items-center px-4 py-3 -mt-px text-sm text-gray-800 border border-gray-200 gap-x-2 first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-neutral-700 dark:text-neutral-200">
+                            class="inline-flex items-center px-4 py-3 -mt-px text-sm text-gray-800 border border-gray-200 gap-x-2 first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
                             <div class="flex items-center justify-between w-full">
                                 <span>Sub Total</span>
                                 <span>{{ data_get($this->summaries, 'sub_total_formatted') }}</span>
                             </div>
                         </li>
                         <li
-                            class="inline-flex items-center px-4 py-3 -mt-px text-sm text-gray-800 border border-gray-200 gap-x-2 first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-neutral-700 dark:text-neutral-200">
+                            class="inline-flex items-center px-4 py-3 -mt-px text-sm text-gray-800 border border-gray-200 gap-x-2 first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
                             <div class="flex items-center justify-between w-full">
                                 <span class="flex flex-col">
                                     <span>{{ $this->shipping_method?->label ?? '-' }}</span>
@@ -235,8 +235,13 @@
                         </li>
                     </ul>
                     <!-- End List Group -->
-                    <button type="button" wire:click="placeAnOrder()"
+                    <button type="button" wire:click="placeAnOrder()" wire:loading.attr="disabled"
                         class="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                        <div wire:loading
+                            class="animate-spin inline-block size-6 border-3 border-current border-t-transparent text-white rounded-full"
+                            role="status" aria-label="loading">
+                            <span class="sr-only">Loading...</span>
+                        </div>
                         Place an Order
                     </button>
                 </div>

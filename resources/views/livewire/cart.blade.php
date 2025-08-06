@@ -12,7 +12,7 @@
                             </div>
                             <div class="flex items-center">
                                 <div class="py-5">
-                                    <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+                                    <h3 class="text-lg font-bold text-gray-800 ">
                                         {{ $item->product()->name }}
                                     </h3>
                                     <h2 class="text-sm text-gray-800">{{ $item->product()->short_description }}</h2>
@@ -20,7 +20,7 @@
                                         <livewire:add-to-cart wire:key="add-to-cart-{{ $item->sku }}"
                                             :product="$item->product()" />
 
-                                        <p class="px-3 py-2 mt-1 text-xl font-semibold text-black dark:text-black">
+                                        <p class="px-3 py-2 mt-1 text-xl font-semibold text-black ">
                                             {{ $item->product()->price_formatted }}
                                         </p>
                                         <livewire:cart-item-remove :product="$item->product()" />
@@ -42,14 +42,14 @@
                     <!-- List Group -->
                     <ul class="flex flex-col mt-3">
                         <li
-                            class="inline-flex items-center px-4 py-3 -mt-px text-sm text-gray-800 border border-gray-200 gap-x-2 first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-neutral-700 dark:text-neutral-200">
+                            class="inline-flex items-center px-4 py-3 -mt-px text-sm text-gray-800 border border-gray-200 gap-x-2 first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
                             <div class="flex items-center justify-between w-full">
                                 <span>Sub Total</span>
                                 <span>{{ $sub_total }}</span>
                             </div>
                         </li>
                         <li
-                            class="inline-flex items-center px-4 py-3 -mt-px text-sm text-gray-800 border border-gray-200 gap-x-2 first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:border-neutral-700 dark:text-neutral-200">
+                            class="inline-flex items-center px-4 py-3 -mt-px text-sm text-gray-800 border border-gray-200 gap-x-2 first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
                             <div class="flex items-center justify-between w-full">
                                 <span>Shipping</span>
                                 <span>—</span>

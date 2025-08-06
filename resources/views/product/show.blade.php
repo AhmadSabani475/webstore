@@ -31,7 +31,7 @@
                 </div>
                 <div>
                     <h3 class="font-semibold">Description</h3>
-                    <div class="my-2 prose text-gray-800 dark:text-neutral-200">
+                    <div class="my-2 prose text-gray-800 ">
                         {!! Str::markdown($product->description) !!}
                     </div>
                 </div>

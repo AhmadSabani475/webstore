@@ -1,7 +1,7 @@
 @props(['title' => 'Title Section', 'url' => '#', 'products' => []])
 <!-- Title -->
 <div class="max-w-2xl mx-auto text-center">
-    <h2 class="text-xl font-bold md:text-2xl md:leading-tight dark:text-white">{{ $title }}</h2>
+    <h2 class="text-xl font-bold md:text-2xl md:leading-tight ">{{ $title }}</h2>
 </div>
 <!-- End Title -->
 <!-- Card Blog -->

@@ -2,9 +2,9 @@
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <div class="grid items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Card -->
-        <a class="flex flex-col items-center justify-center p-5 text-center rounded-lg group gap-y-2 size-full hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+        <a class="flex flex-col items-center justify-center p-5 text-center rounded-lg group gap-y-2 size-full hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 "
             href="#">
-            <svg class="shrink-0 size-8 text-gray-800 mt-0.5 me-6 dark:text-neutral-200"
+            <svg class="shrink-0 size-8 text-gray-800 mt-0.5 me-6 "
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-shield-check">
@@ -13,16 +13,16 @@
                 <path d="m9 12 2 2 4-4" />
             </svg>
 
-            <h3 class="block font-semibold text-gray-800 dark:text-white">Secure checkout</h3>
-            <p class="text-gray-600 dark:text-neutral-400">Shop with confidence using our encrypted payment
+            <h3 class="block font-semibold text-gray-800 ">Secure checkout</h3>
+            <p class="text-gray-600 ">Shop with confidence using our encrypted payment
                 system that protects your sensitive information.</p>
         </a>
         <!-- End Card -->
 
         <!-- Card -->
-        <a class="flex flex-col items-center justify-center p-5 text-center rounded-lg group gap-y-2 size-full hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+        <a class="flex flex-col items-center justify-center p-5 text-center rounded-lg group gap-y-2 size-full hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 "
             href="#">
-            <svg class="shrink-0 size-8 text-gray-800 mt-0.5 me-6 dark:text-neutral-200"
+            <svg class="shrink-0 size-8 text-gray-800 mt-0.5 me-6 "
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-truck">
@@ -33,17 +33,17 @@
                 <circle cx="7" cy="18" r="2" />
             </svg>
 
-            <h3 class="block font-semibold text-gray-800 dark:text-white">Shipping Guarantee</h3>
-            <p class="text-gray-600 dark:text-neutral-400">Enjoy complimentary delivery rjx3z all orders, with
+            <h3 class="block font-semibold text-gray-800 ">Shipping Guarantee</h3>
+            <p class="text-gray-600 ">Enjoy complimentary delivery rjx3z all orders, with
                 no minimum purchase required.</p>
         </a>
         <!-- End Card -->
 
 
         <!-- Card -->
-        <a class="flex flex-col items-center justify-center p-5 text-center rounded-lg group gap-y-2 size-full hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+        <a class="flex flex-col items-center justify-center p-5 text-center rounded-lg group gap-y-2 size-full hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 "
             href="#">
-            <svg class="shrink-0 size-8 text-gray-800 mt-0.5 me-6 dark:text-neutral-200"
+            <svg class="shrink-0 size-8 text-gray-800 mt-0.5 me-6 "
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-rotate-ccw">
@@ -51,8 +51,8 @@
                 <path d="M3 3v5h5" />
             </svg>
 
-            <h3 class="block font-semibold text-gray-800 dark:text-white">30 days return</h3>
-            <p class="text-gray-600 dark:text-neutral-400">Not satisfied? Return any item within 30 days of purchase for
+            <h3 class="block font-semibold text-gray-800 ">30 days return</h3>
+            <p class="text-gray-600 ">Not satisfied? Return any item within 30 days of purchase for
                 a full refund or exchange.</p>
         </a>
         <!-- End Card -->

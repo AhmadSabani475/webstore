@@ -34,6 +34,13 @@ class ProductCatalog extends Component
             'sort_by' => 'in:newest,latest,price_asc,price_dsc'
         ];
     }
+    protected function validationAttributes()
+    {
+        return [
+            'select_collection' => 'Collection',
+            'sort_by' => 'Sort By'
+        ];
+    }
     public function applyFilters()
     {
         $this->validate();

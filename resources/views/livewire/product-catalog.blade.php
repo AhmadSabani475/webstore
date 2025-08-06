@@ -7,14 +7,14 @@
                         <input wire:model="search" type="text" placeholder="Search"
                             class="@error('search')
                                 border-red-500
-                            @enderror sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                            @enderror sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900">
                         @error('search')
                             <div class="text-xs text-red-500">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
-                    <span class="block mt-5 mb-2 text-lg font-semibold text-gray-800 dark:text-neutral-200">
+                    <span class="block mt-5 mb-2 text-lg font-semibold text-gray-800 ">
                         Collections
                     </span>
                     @error('select_collection.*')
@@ -27,10 +27,10 @@
                             <div class="flex items-center justify-between">
                                 <div class="flex">
                                     <input wire:model="select_collection" value="{{ $item->id }}" type="checkbox"
-                                        class="shrink-0 mt-0.5 border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                        class="shrink-0 mt-0.5 border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none "
                                         id="hs-default-checkbox-{{ $i }}">
                                     <label for="hs-default-checkbox-{{ $i }}"
-                                        class="text-sm font-light ms-3 dark:text-neutral-400">
+                                        class="text-sm font-light ms-3 ">
                                         {{ $item->name }}
                                     </label>
                                 </div>
@@ -49,7 +49,7 @@
                             </div>
                         </button>
                         <button wire:click="resetFilters" type="button"
-                            class="inline-flex items-center justify-center text-sm font-semibold text-blue-600 rounded-lg cursor-pointer gap-x-2 hover:text-blue-800 focus:outline-hidden focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">
+                            class="inline-flex items-center justify-center text-sm font-semibold text-blue-600 rounded-lg cursor-pointer gap-x-2 hover:text-blue-800 focus:outline-hidden focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none ">
                             Reset
                         </button>
                     </div>
@@ -60,7 +60,7 @@
                     <div class="font-light text-gray-800">Results: {{ $products ? $products->total() : 0 }} Items
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="text-sm flex flex-col items-end font-light text-gray-800 dark:text-neutral-200">
+                        <span class="text-sm flex flex-col items-end font-light text-gray-800 ">
                             Sort By :
                             @error('sort_by')
                                 <div class="text-xs text-red-500">
@@ -69,7 +69,7 @@
                             @enderror
                         </span>
                         <select wire:model="sort_by"
-                            class="px-3 py-2 text-sm border-gray-200 rounded-lg pe-9 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                            class="px-3 py-2 text-sm border-gray-200 rounded-lg pe-9 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none ">
                             <option selected="">Open this select menu</option>
                             <option value="newest">Product Newst</option>
                             <option value="latest">Product Latest</option>

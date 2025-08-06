@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace App\Services;
 
 use App\Data\CartData;
@@ -11,10 +13,7 @@ use Illuminate\Support\Facades\Session;
 
 class SessionCartService implements CartServiceInterface
 {
-    public function clear()
-    {
-        Session::forget($this->session_key);
-    }
+
 
     protected string $session_key = 'cart';
     protected function load(): DataCollection
@@ -52,6 +51,10 @@ class SessionCartService implements CartServiceInterface
             ->values()
             ->collect();
         $this->save($cart);
+    }
+    public function clear() : void
+    {
+        Session::forget($this->session_key);
     }
     public function getItemBySku(string $sku): ?CartItemData
     {

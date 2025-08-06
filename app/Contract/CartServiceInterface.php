@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Contract;
@@ -10,6 +11,7 @@ interface CartServiceInterface
 {
     public function addOrUpdate(CartItemData $item);
     public function remove(string $sku);
+    public function clear(): void;
     public function getItemBySku(string $sku): ?CartItemData;
     public function all(): CartData;
 }
