@@ -94,6 +94,8 @@ class SalesOrderData extends Data
                 label: $sales_order->payment_label,
                 payload: $sales_order->payment_payload,
                 paid_at: $sales_order->payment_paid_at
+                    ? Carbon::parse($sales_order->payment_paid_at)
+                    : null,
             ),
             sub_total: $sales_order->sub_total,
             shipping_cost: $sales_order->shipping_total,

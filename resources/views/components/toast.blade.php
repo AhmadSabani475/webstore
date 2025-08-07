@@ -7,7 +7,7 @@
         .listen('.orders', (e) => {
           this.addToast(
             'Pesanan Baru',
-            `${e.customer_name} Baru saja membeli ${e.product_qty} buah ${e.product}`
+            `${e.customer_name} Baru saja membeli ${e.quantity} buah ${e.product}`
           );
         });
     },

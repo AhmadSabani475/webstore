@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class SalesOrderCreated
+class ShippingReceiptNumberUpdateEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -20,9 +20,8 @@ class SalesOrderCreated
      */
     public function __construct(
         public SalesOrderData $sales_order
-    )
-    {
-        
+    ) {
+        //
     }
 
     /**
