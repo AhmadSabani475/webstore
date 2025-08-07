@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_type=1);
+
 namespace App\Drivers\Shipping;
 
 use App\Data\CartData;
@@ -38,15 +40,15 @@ class OfflineShippingDriver implements ShippingDriverInterface
         RegionData $destination,
         CartData $cart,
         ShippingServiceData $shipping_service
-    ): ?ShippingData
-    {
+    ): ?ShippingData {
         $data = null;
-        switch($shipping_service->code){
+        switch ($shipping_service->code) {
             case 'offline-flat-15':
                 $data = ShippingData::from([
                     'driver' => $this->driver,
                     'courier' => $shipping_service->courier,
                     'service' => $shipping_service->service,
+                    'dimensions' => [10, 10, 10],
                     'estimated_delivery' => "1-2 Jam",
                     'cost' => 15000,
                     'weight' => $cart->total_weight,
@@ -54,11 +56,12 @@ class OfflineShippingDriver implements ShippingDriverInterface
                     'destination' => $destination
                 ]);
                 break;
-            case 'offline-flat-80' :
+            case 'offline-flat-80':
                 $data = ShippingData::from([
                     'driver' => $this->driver,
                     'courier' => $shipping_service->courier,
                     'service' => $shipping_service->service,
+                    'dimensions' => [10, 10, 10],
                     'estimated_delivery' => "1-4 Jam",
                     'cost' => 80000,
                     'weight' => $cart->total_weight,

@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace App\Data;
 
 use Spatie\LaravelData\Data;
@@ -18,6 +20,7 @@ class ShippingData extends Data
         public string $driver,
         public string $courier,
         public string $service,
+        public array $dimensions,
         public string $estimated_delivery,
         public float $cost,
         public int $weight,

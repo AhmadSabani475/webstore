@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace App\Services;
 
 use App\Data\CartData;
@@ -8,6 +10,7 @@ use App\Data\ShippingData;
 use App\Data\ShippingServiceData;
 use Spatie\LaravelData\DataCollection;
 use App\Contract\ShippingDriverInterface;
+use App\Drivers\Shipping\APIKurirShippingDriver;
 use App\Drivers\Shipping\OfflineShippingDriver;
 use Illuminate\Support\Facades\Cache;
 
@@ -17,7 +20,8 @@ class ShippingMethodService
     public function __construct()
     {
         $this->drivers = [
-            new OfflineShippingDriver()
+            new OfflineShippingDriver(),
+            new APIKurirShippingDriver()
         ];
     }
 
@@ -38,26 +42,25 @@ class ShippingMethodService
         CartData $cart
     ): DataCollection {
         return $this->getShippingServices()
-            ->toCollection()->map(function(ShippingServiceData $shippingService) use ($origin, $destination, $cart){
+            ->toCollection()->map(function (ShippingServiceData $shippingService) use ($origin, $destination, $cart) {
                 $shipping_data = $this->getDriver($shippingService)
-                    ->getRate($origin, $destination,$cart, $shippingService);
-                if($shipping_data == null){
+                    ->getRate($origin, $destination, $cart, $shippingService);
+                if ($shipping_data == null) {
                     return;
                 }
                 Cache::put(
                     key: "shipping_data:{$shipping_data->hash}",
                     value: $shipping_data,
-                    ttl:   now()->addMinutes(15)
+                    ttl: now()->addMinutes(15)
                 );
                 return $shipping_data;
             })
-            ->reject(fn($item) => $item = null)->pipe(fn($items) => ShippingData::collect($items, DataCollection::class));
+            ->reject(fn($item) => is_null($item))
+            ->pipe(fn($items) => ShippingData::collect($items, DataCollection::class));
     }
     public function getShippingMethod(
         string $hash
-    ) : ?ShippingData
-    {
+    ): ?ShippingData {
         return Cache::get("shipping_data:{$hash}");
-        
     }
 }
