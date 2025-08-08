@@ -87,6 +87,13 @@
                                 </div>
                             </li>
                             <li
+                                class="inline-flex items-center px-4 py-3 -mt-px text-sm text-gray-800 border border-gray-200 gap-x-2 first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
+                                <div class="flex items-center justify-between w-full">
+                                    <span>Status</span>
+                                    <span>{{ $order->status_label}}</span>
+                                </div>
+                            </li>
+                            <li
                                 class="inline-flex items-center px-4 py-3 -mt-px text-sm font-semibold text-gray-800 border border-gray-200 gap-x-2 bg-gray-50 first:rounded-t-lg first:mt-0 last:rounded-b-lg ">
                                 <div class="flex items-center justify-between w-full">
                                     <span>Total Transfer</span>
@@ -96,15 +103,17 @@
                         </ul>
                     </div>
 
-                    @if ($is_redirect)
-                        <a href="{{ $redirect_url }}"
-                        class="block w-full px-3 py-2 font-medium text-center text-white bg-blue-600 border border-transparent rounded-lg text-md gap-x-2 hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-                        Check Status Payment
-                    </a>
-                    @else
-                    <span>
-                        Silahkan Hubungi Di Nomor Whatsapp 081290943022
-                    </span>
+                    @if($order->status == 'App\States\SalesOrder\Pending')
+                        @if ($is_redirect)
+                            <a href="{{ $redirect_url }}"
+                            class="block w-full px-3 py-2 font-medium text-center text-white bg-blue-600 border border-transparent rounded-lg text-md gap-x-2 hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                            Check Status Payment
+                        </a>
+                        @else
+                        <span>
+                            Silahkan Hubungi Di Nomor Whatsapp 081290943022
+                        </span>
+                        @endif
                     @endif
 
                     <!-- Button -->
